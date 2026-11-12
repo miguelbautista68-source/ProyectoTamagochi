@@ -19,6 +19,7 @@ public class Tamagochi {
         this.salud = salud;
     }
 
+
     public Tamagochi(){
         this.nombre = "Miguel";
         this.hambre = 0;
