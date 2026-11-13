@@ -20,6 +20,7 @@ public class Perro extends Tamagochi implements  TamagochiActions{
         energia--;
     }
 
+
     @Override
     public int jugar() {
         return 0;
