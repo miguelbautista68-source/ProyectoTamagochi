@@ -9,9 +9,10 @@ public class Aguila extends Tamagochi implements TamagochiActions{
     }
 
     @Override
-    public int jugar() {
+    public int jugar(int tipoDeJuego) {
         return 0;
     }
+
 
     @Override
     public int dormir(int horasDeSueno) {
@@ -19,12 +20,13 @@ public class Aguila extends Tamagochi implements TamagochiActions{
     }
 
     @Override
-    public boolean morir() {
-        return false;
+    public void hacerSonido() {
+
     }
 
     @Override
-    public int sanar() {
-        return 0;
+    public void comportamientoEspecifico() {
+
     }
+
 }
