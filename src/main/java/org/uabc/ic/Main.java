@@ -1,16 +1,18 @@
 package org.uabc.ic;
 
+import org.uabc.ic.VIsta.VistaConsola;
+import org.uabc.ic.control.Controlador;
+import org.uabc.ic.modelo.Coleccion;
 import org.uabc.ic.modelo.Tamagochi;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     static void main() {
-        Tamagochi t1 = new Tamagochi();
-        System.out.println(t1);  // llama toString() automáticamente
+        Controlador controlador;
+        Coleccion modelo = new Coleccion();
+        VistaConsola vista = new VistaConsola();
 
-        // Con el constructor parametrizado
-        Tamagochi t2 = new Tamagochi("Luna", 80, 30, 90, 70);
-        System.out.println(t2.toString());
+        Controlador controlador1 = new Controlador();
     }
 }

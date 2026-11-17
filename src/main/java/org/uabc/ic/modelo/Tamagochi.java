@@ -4,7 +4,7 @@ public abstract class Tamagochi implements TamagochiActions {
 
     protected String nombre;
     protected  int energia;
-    protected  int hambre;
+    protected  int hambre;  // El unico que 0 es satisfecho y 100 muerto de hambre
     protected  int felicidad;
     protected  int salud;
     protected  boolean durmiendo;
