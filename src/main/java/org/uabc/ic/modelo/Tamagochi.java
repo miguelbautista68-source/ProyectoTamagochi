@@ -62,11 +62,11 @@ public abstract class Tamagochi implements TamagochiActions {
         if (durmiendo){
             return "Esta durmiendo";
         }
-        if (hambre >= 80 || energia >= 20 || felicidad <= 20 || salud >= 20){
+        if (hambre >= 80 || energia <= 20 || felicidad <= 20 || salud <= 20){
             return "Esta mal";
         }
 
-        if(hambre >= 50 || energia >= 50 || felicidad <= 50){
+        if(hambre >= 50 || energia <= 50 || felicidad <= 50){
             return "Necesita atencion";
         }
         return "Todo bien";

@@ -94,6 +94,16 @@ public class Controlador {
                         IO.println("No se ha encontrado el nombre de tu tamagochi");
                     }
                     break;
+                case 4:
+                    String tamagochiBuscar = vista.leerCadenas("Ingresa el nombre de tu tamagochi");
+                    Tamagochi encontrar = modelo.buscarTamagochi(tamagochiBuscar);
+
+                    if(encontrar != null){
+                        IO.println(encontrar.estadoDeAnimo());
+                    } else {
+                        IO.println("No se ha encotrado ningun tamagochi con ese nombre");
+                    }
+
 
             }
         } while (op != 6);

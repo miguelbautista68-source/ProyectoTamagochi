@@ -28,6 +28,7 @@ public class VistaConsola {
         IO.println("1. Registrar Tamagochi nuevo");
         IO.println("2. MOstrar todos los juguetes");
         IO.println("3. Interactuar con mi tamagochi");
+        IO.println("4. Checar estado de animo");
 
         IO.println("6. Salir");
 
