@@ -28,7 +28,11 @@ public class Controlador {
                     tp = vista.mostrarOpcionTamagochi();
                     //String nombre, int energia, int hambre, int felicidad, int salud, int agresividad, int imper
                     String nombre = vista.leerCadenas("Escribe el nombre de tu tamagochi");
+                    int energia = vista.leerNumeros("Esribe el nivel de energia");
                     int hambre = vista.leerNumeros("Escribe el nivel de hambre");
+                    int felicidad = vista.leerNumeros("Escribe el nivel de felicidad");
+                    int salud = vista.leerNumeros("Escribe el nivel de salud");
+
 
 
                     switch (tp){
@@ -36,25 +40,29 @@ public class Controlador {
                             int agresivo = vista.leerNumeros("Esribe el nivel de agregsividad");
                             int hiper = vista.leerNumeros("Escribe el nivel de hiperactividad");
 
-                            modelo.agregarPerro(nombre, hambre, 10, 40, 60, agresivo, hiper);
+                            modelo.agregarPerro(nombre, energia, hambre, felicidad, salud, agresivo, hiper);
+                            //modelo.agregarPerro(nombre, hambre, 10, 40, 60, agresivo, hiper);
                             break;
                         case 2: // sera pez dorado
                             int oxigenacion = vista.leerNumeros("Escribe el nivel de oxigenacion");
                             int calidadAgua = vista.leerNumeros("Escribe el nivel de calidad de agua");
                             int controlTemperatura = vista.leerNumeros("Escribe nivel de temperatura");
 
-                            modelo.agregarPerDorado(nombre, hambre, 50, 40, 60, oxigenacion, calidadAgua, controlTemperatura);
+                            modelo.agregarPerDorado(nombre, energia, hambre, felicidad, salud, oxigenacion, calidadAgua, controlTemperatura);
+                            //modelo.agregarPerDorado(nombre, hambre, 50, 40, 60, oxigenacion, calidadAgua, controlTemperatura);
                             break;
                         case 3: // Sera aguila
                             int nivelFuerza = vista.leerNumeros("Escribe el nivel de fuerza");
                             int velocidad = vista.leerNumeros("Escribe el nivel de velocidad");
 
-                            modelo.agregarAguila(nombre, hambre, 50, 60, 30, nivelFuerza, velocidad);
+                            modelo.agregarAguila(nombre, energia, hambre, felicidad, salud, nivelFuerza, velocidad);
+                            //modelo.agregarAguila(nombre, hambre, 50, 60, 30, nivelFuerza, velocidad);
                         break;
                         case 4:
-                            int tamaño = vista.leerNumeros("Escribe el tamaño de tu dragon");
+                            int tamano = vista.leerNumeros("Escribe el tamaño de tu dragon");
 
-                            modelo.agregarDragon(nombre, 50, hambre, 60, 80, tamaño, false, 0);
+                            modelo.agregarDragon(nombre, energia, hambre, felicidad, salud, tamano, false, 0);
+                            //modelo.agregarDragon(nombre, 50, hambre, 60, 80, tamaño, false, 0);
                             break;
                     }
                     break;
@@ -71,10 +79,15 @@ public class Controlador {
                         int opTamagochi = vista.menuInteractuar();
                         switch(opTamagochi){
                             case 1:
+                                int alimento = vista.leerNumeros(encontrado.getMenuComida());
+                                encontrado.comer(alimento);
                                 break;
                             case 2:
+                                int juego = vista.leerNumeros(encontrado.getMenuJuegos());
+                                encontrado.jugar(juego);
                                 break;
                             case 3:
+                                //encontrado.dormir();
                                 break;
                         }
                     } else {

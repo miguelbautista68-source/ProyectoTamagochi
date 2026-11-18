@@ -86,6 +86,22 @@ public class PezDorado extends Tamagochi implements  TamagochiActions{
     }
 
     @Override
+    public String getMenuComida() {
+        return "Selecciona el tipo de comida" +
+                "1. Hojuelas" +
+                "2. Granulos" +
+                "3. Trozo de alga";
+    }
+
+    @Override
+    public String getMenuJuegos() {
+        return "Selecciona el tipo de juego" +
+                "1. Esconder en el castillo" +
+                "2. Salir a nadar" +
+                "3. Jugar con su compañero";
+    }
+
+    @Override
     public void hacerSonido() {
 
     }

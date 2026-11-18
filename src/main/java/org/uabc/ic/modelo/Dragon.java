@@ -96,6 +96,23 @@ public class Dragon extends Tamagochi{
         IO.println(nombre + " duerme " + horasDeSueno + " hora(s). Zzz...");
         return energia - antes;
     }
+
+    @Override
+    public String getMenuComida() {
+        return "Selecciona el tipo de comida" +
+                "1. Oveja" +
+                "2. Vaca" +
+                "3. Humano";
+    }
+
+    @Override
+    public String getMenuJuegos() {
+        return "Seleciona un tipo de juego" +
+                "1. Salir a cazar" +
+                "2. Tirar bolas de fuego" +
+                "3. Salir a volar";
+    }
+
     //getters y setters
     public int getTamanio() {
         return tamanio;

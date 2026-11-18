@@ -90,6 +90,23 @@ public class Aguila extends Tamagochi implements TamagochiActions{
         IO.println(nombre + " duerme " + horasDeSueno + " hora(s). Zzz...");
         return energia - antes;
     }
+
+    @Override
+    public String getMenuComida() {
+        return "Selecciona el tipo de comida" +
+                "1. Gusanos" +
+                "2. Raton" +
+                "3. Serpiente";
+    }
+
+    @Override
+    public String getMenuJuegos() {
+        return "Seleciona un tipo de juego" +
+                "1. Jugar con su munñeco" +
+                "2. Salir a volar" +
+                "3. Jugar con su amigo";
+    }
+
     public void chillido(){
         chillido++;
         System.out.println("AAAAHHHHHHHH");

@@ -6,5 +6,9 @@ public interface TamagochiActions {
     //Retornar un valor para que se quite la energia.
     public int dormir(int horasDeSueno);
 
+    // En Tamagochi.java (clase padre)
+    public abstract String getMenuComida();
+    public abstract String getMenuJuegos();
+
 
 }

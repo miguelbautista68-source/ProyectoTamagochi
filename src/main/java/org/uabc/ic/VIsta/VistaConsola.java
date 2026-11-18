@@ -51,4 +51,5 @@ public class VistaConsola {
 
             return leerNumeros.nextInt();
     }
+
 }

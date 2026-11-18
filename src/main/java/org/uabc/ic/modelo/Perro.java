@@ -95,6 +95,22 @@ public class Perro extends Tamagochi implements  TamagochiActions {
     }
 
     @Override
+    public String getMenuComida() {
+        return "Selecciona un tipo de comida " +
+                "1. Croquetas " +
+                "2. Hueso" +
+                "3. Carne";
+    }
+
+    @Override
+    public String getMenuJuegos() {
+        return "Seleciona un tipo de juego" +
+                "1. Jugar con la pelota" +
+                "2. Perseguir cola" +
+                "3. Salir a correr";
+    }
+
+    @Override
     public void hacerSonido() {
         ladrar();
     }
