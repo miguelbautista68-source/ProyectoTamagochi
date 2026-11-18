@@ -7,14 +7,15 @@ public class Perro extends Tamagochi implements  TamagochiActions {
     private int ladridos;
 
     public Perro(String nombre, int energia, int hambre, int felicidad, int salud, int agresividad, int imper) {
-        super(nombre, energia, hambre, felicidad, salud);
+        super(nombre, energia, hambre, felicidad, salud, tipoTamagochi);
         nivelAgresividad = agresividad;
         nivelImperactividad = imper;
         ladridos = 0;
+        tipoTamagochi = 1;
     }
 
     public Perro() {
-        super("Sansa", 10, 5, 6, 7);
+        super("Sansa", 10, 5, 6, 7, 1);
         this.nivelAgresividad = 30;
         this.nivelImperactividad = 60;
         this.ladridos = 0;
