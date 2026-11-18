@@ -10,5 +10,7 @@ public interface TamagochiActions {
     public abstract String getMenuComida();
     public abstract String getMenuJuegos();
 
+    public abstract void hacerSonido();
+
 
 }
