@@ -100,9 +100,9 @@ public class Dragon extends Tamagochi{
     @Override
     public String getMenuComida() {
         return "Selecciona el tipo de comida" +
-                "1. Oveja" +
-                "2. Vaca" +
-                "3. Humano";
+                " 1. Oveja" +
+                " 2. Vaca" +
+                " 3. Humano";
     }
 
     @Override
