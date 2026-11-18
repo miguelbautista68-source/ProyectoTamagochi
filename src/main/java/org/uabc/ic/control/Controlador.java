@@ -74,25 +74,29 @@ public class Controlador {
                     String tamagochi = vista.leerCadenas("Ingresa el nombre de tu tamagochi");
                     Tamagochi encontrado = modelo.buscarTamagochi(tamagochi);
 
-                    if(encontrado != null){
-                        IO.println("Se ha encontrado tu tamgochi, ingresa que quieres hacer");
-                        int opTamagochi = vista.menuInteractuar();
-                        switch(opTamagochi){
-                            case 1:
-                                int alimento = vista.leerNumeros(encontrado.getMenuComida());
-                                encontrado.comer(alimento);
-                                break;
-                            case 2:
-                                int juego = vista.leerNumeros(encontrado.getMenuJuegos());
-                                encontrado.jugar(juego);
-                                break;
-                            case 3:
-                                //encontrado.dormir();
-                                break;
+                    if(encontrado != null) {
+                        if (encontrado.morir() == true) {
+                            IO.println("Tu mascota ha muerto");
+                        } else {
+                            IO.println("Se ha encontrado tu tamgochi, ingresa que quieres hacer");
+                            int opTamagochi = vista.menuInteractuar();
+                            switch (opTamagochi) {
+                                case 1:
+                                    int alimento = vista.leerNumeros(encontrado.getMenuComida());
+                                    encontrado.comer(alimento);
+                                    break;
+                                case 2:
+                                    int juego = vista.leerNumeros(encontrado.getMenuJuegos());
+                                    encontrado.jugar(juego);
+                                    break;
+                                case 3:
+                                    //encontrado.dormir();
+                                    break;
+                            }
                         }
-                    } else {
-                        IO.println("No se ha encontrado el nombre de tu tamagochi");
-                    }
+                        } else{
+                            IO.println("No se ha encontrado el nombre de tu tamagochi");
+                        }
                     break;
                 case 4:
                     String tamagochiBuscar = vista.leerCadenas("Ingresa el nombre de tu tamagochi");

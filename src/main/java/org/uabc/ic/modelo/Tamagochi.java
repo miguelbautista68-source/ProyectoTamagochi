@@ -11,6 +11,7 @@ public abstract class Tamagochi implements TamagochiActions {
     protected  int salud;
     protected  boolean durmiendo;
     protected  int tipoTamagochi;
+    protected boolean morir;
 
     //Establecer parametros de las condiciones que puede pasarle a cada cosa
     //sets y getters
@@ -22,6 +23,7 @@ public abstract class Tamagochi implements TamagochiActions {
         this.felicidad = felicidad;
         this.salud = salud;
         this.durmiendo = false;
+        this.morir = false;
         //this.tipoTamagochi = tipoTamagochi;
     }
 
@@ -32,6 +34,7 @@ public abstract class Tamagochi implements TamagochiActions {
         this.energia = 10;
         this.felicidad = 40;
         this.salud = 50;
+        this.morir = false;
     }
 
     //Limites de las necesidades
@@ -82,7 +85,10 @@ public abstract class Tamagochi implements TamagochiActions {
     public abstract void comportamientoEspecifico();
 
     public boolean morir() {
-        return salud <= 0;
+        if (salud <= 0){
+            morir = true;
+        }
+        return morir;
     }
 
     public int sanar() {
