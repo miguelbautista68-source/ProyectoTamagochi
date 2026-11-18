@@ -37,7 +37,7 @@ public class Controlador {
 
                     switch (tp){
                         case 1: //Sera perro
-                            int agresivo = vista.leerNumeros("Esribe el nivel de agregsividad");
+                            int agresivo = vista.leerNumeros("Esribe el nivel de agresividad");
                             int hiper = vista.leerNumeros("Escribe el nivel de hiperactividad");
 
                             modelo.agregarPerro(nombre, energia, hambre, felicidad, salud, agresivo, hiper);
