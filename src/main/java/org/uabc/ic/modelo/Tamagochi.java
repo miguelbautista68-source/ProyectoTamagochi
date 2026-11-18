@@ -1,5 +1,7 @@
 package org.uabc.ic.modelo;
 
+//Retirar tamagochiActions por el abstract que tiene
+
 public abstract class Tamagochi implements TamagochiActions {
 
     protected String nombre;
@@ -8,26 +10,31 @@ public abstract class Tamagochi implements TamagochiActions {
     protected  int felicidad;
     protected  int salud;
     protected  boolean durmiendo;
+    protected  int tipoTamagochi;
+    protected boolean morir;
 
     //Establecer parametros de las condiciones que puede pasarle a cada cosa
     //sets y getters
     //Constructores
-    public Tamagochi (String nombre, int energia, int hambre, int felicidad, int salud){
+    public Tamagochi (String nombre, int energia, int hambre, int felicidad, int salud, int tipoTamagochi){
         this.nombre = nombre;
         this.energia = energia;
         this.hambre = hambre;
         this.felicidad = felicidad;
         this.salud = salud;
         this.durmiendo = false;
+        this.morir = false;
+        //this.tipoTamagochi = tipoTamagochi;
     }
 
 
     public Tamagochi(){
-        this.nombre = "Miguel";
+        this.nombre = "Solovino";
         this.hambre = 0;
         this.energia = 10;
         this.felicidad = 40;
         this.salud = 50;
+        this.morir = false;
     }
 
     //Limites de las necesidades
@@ -78,7 +85,10 @@ public abstract class Tamagochi implements TamagochiActions {
     public abstract void comportamientoEspecifico();
 
     public boolean morir() {
-        return salud <= 0;
+        if (salud <= 0){
+            morir = true;
+        }
+        return morir;
     }
 
     public int sanar() {
@@ -125,6 +135,10 @@ public abstract class Tamagochi implements TamagochiActions {
 
     public void setSalud(int salud) {
         this.salud = salud;
+    }
+
+    public int getTipoTamagochi(){
+        return tipoTamagochi;
     }
 
     public String toString(){
