@@ -23,7 +23,6 @@ public abstract class Tamagochi implements TamagochiActions {
         this.salud = salud;
         this.durmiendo = false;
         this.morir = false;
-        //this.tipoTamagochi = tipoTamagochi;
     }
 
 

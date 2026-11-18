@@ -44,6 +44,7 @@ public class Coleccion {
                 .orElse(null);
     }
 
+
     public void agregarPerro(String nombre, int energia, int hambre, int felicidad, int salud, int agresividad, int imper){
         agregar (new Perro(nombre,energia ,hambre, felicidad, salud, agresividad, imper));
     }
