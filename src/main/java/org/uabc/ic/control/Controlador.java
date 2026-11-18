@@ -71,6 +71,7 @@ public class Controlador {
                     vista.mostrarDatos(modelo.listaJuguetes());
                     break;
                 case 3:
+                    vista.mostrarDatos(modelo.listaNombres());
                     String tamagochi = vista.leerCadenas("Ingresa el nombre de tu tamagochi");
                     Tamagochi encontrado = modelo.buscarTamagochi(tamagochi);
 

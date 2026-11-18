@@ -39,7 +39,7 @@ public abstract class Tamagochi implements TamagochiActions {
     protected  void aplicarCambios(int conHambre, int conEnergia, int conFelicidad){
         hambre = limite(hambre + conHambre);
         energia = limite (energia + conEnergia);
-        felicidad = limite (felicidad = conFelicidad);
+        felicidad = limite (felicidad + conFelicidad);
     }
 
     public void pasoDelTiempo(){

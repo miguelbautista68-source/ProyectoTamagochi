@@ -21,6 +21,22 @@ public class Coleccion {
         return cadena.toString();
     }
 
+    // Lista con el nombre y el tipo de cada tamagochi registrado
+    public String listaNombres() {
+        if (misJueguetes.isEmpty()) {
+            return "No hay tamagochis registrados todavia.";
+        }
+        StringBuilder cadena = new StringBuilder("Tamagochis activos:\n");
+        for (Tamagochi t : misJueguetes) {
+            cadena.append("- ")
+                  .append(t.getNombre())
+                  .append(" (")
+                  .append(t.getClass().getSimpleName())
+                  .append(")\n");
+        }
+        return cadena.toString();
+    }
+
     public Tamagochi buscarTamagochi(String encontrar){
         return misJueguetes.stream()
                 .filter(n -> n.getNombre().equalsIgnoreCase(encontrar))
