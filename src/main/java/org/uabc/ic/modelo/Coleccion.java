@@ -21,6 +21,13 @@ public class Coleccion {
         return cadena.toString();
     }
 
+    public Tamagochi buscarTamagochi(String encontrar){
+        return misJueguetes.stream()
+                .filter(n -> n.getNombre().equalsIgnoreCase(encontrar))
+                .findFirst()
+                .orElse(null);
+    }
+
     public void agregarPerro(String nombre, int energia, int hambre, int felicidad, int salud, int agresividad, int imper){
         agregar (new Perro(nombre,energia ,hambre, felicidad, salud, agresividad, imper));
     }

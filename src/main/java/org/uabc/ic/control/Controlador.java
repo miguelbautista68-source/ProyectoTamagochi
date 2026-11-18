@@ -52,6 +52,9 @@ public class Controlador {
                             modelo.agregarAguila(nombre, hambre, 50, 60, 30, nivelFuerza, velocidad);
                         break;
                         case 4:
+                            int tamaño = vista.leerNumeros("Escribe el tamaño de tu dragon");
+
+                            modelo.agregarDragon(nombre, 50, hambre, 60, 80, tamaño, false, 0);
                             break;
                     }
                     break;
@@ -59,6 +62,26 @@ public class Controlador {
                     IO.println("Mostrar lista de tamagochi");
                     vista.mostrarDatos(modelo.listaJuguetes());
                     break;
+                case 3:
+                    String tamagochi = vista.leerCadenas("Ingresa el nombre de tu tamagochi");
+                    Tamagochi encontrado = modelo.buscarTamagochi(tamagochi);
+
+                    if(encontrado != null){
+                        IO.println("Se ha encontrado tu tamgochi, ingresa que quieres hacer");
+                        int opTamagochi = vista.menuInteractuar();
+                        switch(opTamagochi){
+                            case 1:
+                                break;
+                            case 2:
+                                break;
+                            case 3:
+                                break;
+                        }
+                    } else {
+                        IO.println("No se ha encontrado el nombre de tu tamagochi");
+                    }
+                    break;
+
             }
         } while (op != 6);
     }

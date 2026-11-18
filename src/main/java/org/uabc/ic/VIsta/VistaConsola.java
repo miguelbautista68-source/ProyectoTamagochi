@@ -1,5 +1,8 @@
 package org.uabc.ic.VIsta;
 
+import org.uabc.ic.modelo.Tamagochi;
+
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class VistaConsola {
@@ -24,6 +27,8 @@ public class VistaConsola {
     public int mostrarMenuPrincipal(){
         IO.println("1. Registrar Tamagochi nuevo");
         IO.println("2. MOstrar todos los juguetes");
+        IO.println("3. Interactuar con mi tamagochi");
+
         IO.println("6. Salir");
 
         return leerNumeros.nextInt();
@@ -37,5 +42,13 @@ public class VistaConsola {
         IO.println("4. Dragon");
 
         return leerNumeros.nextInt();
+    }
+
+    public int menuInteractuar(){
+            IO.println("1. Darle de comer");
+            IO.println("2. Jugar con el");
+            IO.println("3. Dormir");
+
+            return leerNumeros.nextInt();
     }
 }
