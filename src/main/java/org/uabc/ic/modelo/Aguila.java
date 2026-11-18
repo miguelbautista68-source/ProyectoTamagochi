@@ -26,10 +26,55 @@ public class Aguila extends Tamagochi implements TamagochiActions{
             System.out.println(this.nombre + " esta durmiendo, no puede comer.");
             return;
         }
+        switch (alimento) {
+            case 1 -> {
+                IO.println(nombre + " come gusanos");
+                aplicarCambios(-30, 10, 3);
+            }
+            case 2 -> {
+                IO.println(nombre + " come un raton");
+                aplicarCambios(-15, 5, 10);
+            }
+            case 3 -> {
+                IO.println(nombre + " devora una serpiente");
+                aplicarCambios(-40, 20, 20);
+            }
+            default -> IO.println("Alimentos no validos para un aguila");
+        }
     }
 
     @Override
     public int jugar(int tipoDeJuego) {
+        if (durmiendo) {
+            IO.println(nombre + " esta durmiendo, no puede jugar.");
+            return 0;
+        }
+        if (energia < 10) {
+            IO.println(nombre + " esta muy cansado para jugar.");
+            return 0;
+        }
+        int gasto;
+        switch (tipoDeJuego) {
+            case 1 -> {
+                IO.println(nombre + " juega con su munieco.");
+                gasto = 10;
+                aplicarCambios(5, -gasto, 15);
+            }
+            case 2 -> {
+                gasto = 5;
+                aplicarCambios(3, -gasto, 10);
+                Volar();
+            }
+            case 3 -> {
+                IO.println(nombre + " juega con su amigo.");
+                gasto = 20;
+                aplicarCambios(10, -gasto, 20);
+            }
+            default -> {
+                IO.println("Esos juegos no estan para el aguila).");
+                gasto = 0;
+            }
+        }
         return 0;
     }
 
