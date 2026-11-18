@@ -79,7 +79,7 @@ public class Perro extends Tamagochi implements  TamagochiActions {
     }
 
     // Comportamientos especificos
-    public void ladrar() {
+    public void ladrar () {
         ladridos++;
         IO.println(nombre + " dice: ¡Guau guau!");
     }

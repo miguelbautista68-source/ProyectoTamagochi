@@ -103,8 +103,17 @@ public class Controlador {
                     } else {
                         IO.println("No se ha encotrado ningun tamagochi con ese nombre");
                     }
+                    break;
+                case 5:
+                    String tamagochiValidar = vista.leerCadenas("Ingresa el nombre de tu tamgochi");
+                    Tamagochi buscarTam = modelo.buscarTamagochi(tamagochiValidar);
 
-
+                    if (buscarTam != null){
+                        buscarTam.hacerSonido();
+                    } else {
+                        IO.println("No se ha encontrado ningun tamagochi con ese nombre");
+                    }
+                    break;
             }
         } while (op != 6);
     }
