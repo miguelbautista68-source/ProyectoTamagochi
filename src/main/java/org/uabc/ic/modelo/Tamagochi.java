@@ -10,13 +10,12 @@ public abstract class Tamagochi implements TamagochiActions {
     protected  int felicidad;
     protected  int salud;
     protected  boolean durmiendo;
-    protected  int tipoTamagochi;
     protected boolean morir;
 
     //Establecer parametros de las condiciones que puede pasarle a cada cosa
     //sets y getters
     //Constructores
-    public Tamagochi (String nombre, int energia, int hambre, int felicidad, int salud, int tipoTamagochi){
+    public Tamagochi (String nombre, int energia, int hambre, int felicidad, int salud){
         this.nombre = nombre;
         this.energia = energia;
         this.hambre = hambre;
@@ -135,10 +134,6 @@ public abstract class Tamagochi implements TamagochiActions {
 
     public void setSalud(int salud) {
         this.salud = salud;
-    }
-
-    public int getTipoTamagochi(){
-        return tipoTamagochi;
     }
 
     public String toString(){
