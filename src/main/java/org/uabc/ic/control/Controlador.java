@@ -39,9 +39,20 @@ public class Controlador {
                             modelo.agregarPerro(nombre, hambre, 10, 40, 60, agresivo, hiper);
                             break;
                         case 2: // sera pez dorado
+                            int oxigenacion = vista.leerNumeros("Escribe el nivel de oxigenacion");
+                            int calidadAgua = vista.leerNumeros("Escribe el nivel de calidad de agua");
+                            int controlTemperatura = vista.leerNumeros("Escribe nivel de temperatura");
+
+                            modelo.agregarPerDorado(nombre, hambre, 50, 40, 60, oxigenacion, calidadAgua, controlTemperatura);
                             break;
                         case 3: // Sera aguila
+                            int nivelFuerza = vista.leerNumeros("Escribe el nivel de fuerza");
+                            int velocidad = vista.leerNumeros("Escribe el nivel de velocidad");
+
+                            modelo.agregarAguila(nombre, hambre, 50, 60, 30, nivelFuerza, velocidad);
                         break;
+                        case 4:
+                            break;
                     }
                     break;
                 case 2 :

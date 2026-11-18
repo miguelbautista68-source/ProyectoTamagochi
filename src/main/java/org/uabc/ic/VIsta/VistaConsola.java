@@ -31,9 +31,10 @@ public class VistaConsola {
 
     public int mostrarOpcionTamagochi(){
         IO.println("Salecciona la opcion de  tamagochi que deseas crear");
-        IO.println("1. perro");
-        IO.println("2. pez dorado");
+        IO.println("1. Perro");
+        IO.println("2. Pez dorado");
         IO.println("3. Aguila");
+        IO.println("4. Dragon");
 
         return leerNumeros.nextInt();
     }

@@ -13,6 +13,8 @@ public class Main {
         Coleccion modelo = new Coleccion();
         VistaConsola vista = new VistaConsola();
 
-        Controlador controlador1 = new Controlador();
+        Controlador controlador1 = new Controlador(vista, modelo);
+
+        controlador1.iniciar();
     }
 }

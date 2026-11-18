@@ -3,15 +3,17 @@ import java.util.Random;
 
 public class Aguila extends Tamagochi implements TamagochiActions{
     private int nivelFuerza;
-    private boolean estaVolando;
     private int velocidad;
     private int chillido;
+    private boolean estaVolando;
 
 
-    public Aguila(String nombre, int energia, int hambre, int felicidad, int salud, boolean durmmiendo, int fuerza,boolean estaVolando,  int velocidad ) {
+    public Aguila(String nombre, int energia, int hambre, int felicidad, int salud, int fuerza, int velocidad ) {
         super(nombre, energia, hambre, felicidad, salud);
         nivelFuerza=fuerza;
         chillido=0;
+        this.velocidad = velocidad;
+        this.estaVolando = false;
     }
     public void Volar(){
         estaVolando=true;

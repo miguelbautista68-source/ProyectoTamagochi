@@ -5,10 +5,12 @@ public class PezDorado extends Tamagochi implements  TamagochiActions{
     private int controlTemperatura;
     private int oxigenacion;
 
-    public PezDorado(String nombre, int energia, int hambre, int felicidad, int salud, int Agua,
+    public PezDorado(String nombre, int energia, int hambre, int felicidad, int salud, int agua,
                      int controlTemperatura, int oxigenacion) {
         super(nombre, energia, hambre, felicidad, salud);
-        this.calidadAgua=Agua;
+        this.calidadAgua=agua;
+        this.controlTemperatura = controlTemperatura;
+        this.oxigenacion = oxigenacion;
 
     }
     public void SalirNadar(){
