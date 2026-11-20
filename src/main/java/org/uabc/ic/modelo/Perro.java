@@ -140,4 +140,21 @@ public class Perro extends Tamagochi implements  TamagochiActions {
         return "[Perro] " + super.toString() + " agresividad: " + nivelAgresividad
                 + " imperactividad: " + nivelImperactividad;
     }
+
+    // Cada paso del tiempo afecta distinto segun la personalidad del perro
+    @Override
+    public void pasoDelTiempo() {
+        super.pasoDelTiempo(); // lo normal: +5 hambre, -3 felicidad, -3 energia
+
+        // Agresividad alta = perro "rudo": la felicidad le baja mas lento
+        // (agresividad 0 -> 0 puntos, agresividad 90 -> recupera 2 puntos)
+        felicidad = limite(felicidad + nivelAgresividad / 40);
+
+        // Hiperactividad alta = se cansa y le da hambre mas rapido
+        // (hiperactividad 100 -> -4 energia y +2 hambre extra)
+        if (!durmiendo) {
+            energia = limite(energia - nivelImperactividad / 25);
+        }
+        hambre = limite(hambre + nivelImperactividad / 34);
+    }
 }

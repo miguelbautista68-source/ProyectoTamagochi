@@ -140,5 +140,21 @@ public class Dragon extends Tamagochi{
         this.apetito = apetito;
     }
 
+    // Cada paso del tiempo afecta distinto segun su tamanio y apetito
+    @Override
+    public void pasoDelTiempo() {
+        super.pasoDelTiempo(); // lo normal: +5 hambre, -3 felicidad, -3 energia
 
+        // Dragon mas grande = le da hambre mas rapido
+        hambre = limite(hambre + tamanio / 20);
+
+        // Mas apetito = todavia mas hambre
+
+        hambre = limite(hambre + apetito / 34);
+    }
+
+    public String toString() {
+        return "[Dragon] " + super.toString() + " tamanio: " + tamanio
+                + " apetito: " + apetito;
+    }
 }
