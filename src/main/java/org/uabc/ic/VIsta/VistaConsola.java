@@ -30,7 +30,8 @@ public class VistaConsola {
         IO.println("3. Interactuar con mi tamagochi");
         IO.println("4. Checar estado de animo");
         IO.println("5. Sonido de tu tamagochi");
-        IO.println("6. Salir");
+        IO.println("6. Mostrar estadisticas");
+        IO.println("7. Salir");
 
         return leerNumeros.nextInt();
     }

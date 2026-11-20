@@ -5,8 +5,11 @@ public class Dragon extends Tamagochi{
     private boolean tirarFuego;
     private int apetito;
 
-    Dragon(String nombre, int energia, int hambre, int felicidad, int salud, int tamanio, boolean tirarFuego, int apetito) {
+    public Dragon(String nombre, int energia, int hambre, int felicidad, int salud, int tamanio, boolean tirarFuego, int apetito) {
         super(nombre, energia, hambre, felicidad, salud);
+        this.tamanio = tamanio;
+        this.tirarFuego = tirarFuego;
+        this.apetito = apetito;
     }
     public void rugir(){
         System.out.println(nombre + "dice RRAAAAAAAAAAAUGGGHHGHGHGH");
@@ -113,21 +116,27 @@ public class Dragon extends Tamagochi{
 
     //getters y setters
     public int getTamanio() {
+
         return tamanio;
     }
     public void setTamanio(int tamanio) {
+
         this.tamanio = tamanio;
     }
     public boolean getTirarFuego() {
+
         return tirarFuego;
     }
     public void setTirarFuego(boolean tirarFuego) {
+
         this.tirarFuego = tirarFuego;
     }
     public int getApetito() {
+
         return apetito;
     }
     public void setApetito(int apetito) {
+
         this.apetito = apetito;
     }
 

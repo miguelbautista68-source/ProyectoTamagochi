@@ -46,7 +46,7 @@ public class Controlador {
                             int calidadAgua = rdm.nextInt(101);
                             int controlTemperatura = rdm.nextInt(101);
 
-                            modelo.agregarPerDorado(nombre, 100, 0, 100, 100, oxigenacion, calidadAgua, controlTemperatura);
+                            modelo.agregarPerDorado(nombre, 100, 0, 100, 100, calidadAgua, controlTemperatura, oxigenacion);
                             //modelo.agregarPerDorado(nombre, 40, 50, 40, 0, oxigenacion, calidadAgua, controlTemperatura);
                             break;
                         case 3: // Sera aguila
@@ -57,9 +57,10 @@ public class Controlador {
                             //modelo.agregarAguila(nombre, 10, 50, 60, 0, nivelFuerza, velocidad);
                         break;
                         case 4:
-                            int tamano = vista.leerNumeros("Escribe el tamaño de tu dragon");
+                            int tamano = rdm.nextInt(101);
+                            int apetito = rdm.nextInt(101);
 
-                            modelo.agregarDragon(nombre, 100, 0, 100, 100, tamano, false, 0);
+                            modelo.agregarDragon(nombre, 100, 0, 100, 100, tamano, false, apetito);
                             //modelo.agregarDragon(nombre, 50, 40, 60, 0, tamaño, false, 0);
                             break;
                     }
@@ -137,12 +138,24 @@ public class Controlador {
                         IO.println("No se ha encontrado ningun tamagochi con ese nombre");
                     }
                     break;
+                case 6:
+                    vista.mostrarDatos(modelo.listaNombres());
+                    String tamagochiEstadisticas = vista.leerCadenas("Ingresa el nombre de tu tamagochi");
+                    Tamagochi buscarEst = modelo.buscarTamagochi(tamagochiEstadisticas);
+
+                    if (buscarEst != null) {
+                        vista.mostrarDatos(buscarEst.mostrarEstadisticas());
+                    } else {
+                        IO.println("No se ha encontrado ningun tamagochi con ese nombre");
+                    }
+                    break;
+
             }
 
             if (op >= 1 && op <= 4) {
                 modelo.pasarTiempoATodos();
             }
 
-        } while (op != 6);
+        } while (op != 7);
     }
 }

@@ -139,6 +139,16 @@ public abstract class Tamagochi implements TamagochiActions {
         this.salud = salud;
     }
 
+    public String mostrarEstadisticas(){
+
+        return "Estadisticas de " + nombre + "\n" +
+                "Salud: " + salud + "\n" +
+                "Energia: " + energia + "\n" +
+                "Hambre: " + hambre + "\n" +
+                "Felicidad: " + felicidad + "\n" +
+                "Durmiendo: " + (durmiendo ? "Si" : "No");
+    }
+
     public String toString(){
         return "TU tamagochi de  nombre " + nombre + " su energia es de " + energia + " su hambre es de " + hambre +
                 " y su felicidad de " + felicidad + " tiene salud de: " + salud;
