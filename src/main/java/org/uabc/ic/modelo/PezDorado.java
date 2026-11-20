@@ -157,4 +157,13 @@ public class PezDorado extends Tamagochi implements  TamagochiActions{
                 + " controlTemperatura: " + controlTemperatura
                 + " oxigenacion: " + oxigenacion;
     }
+
+    // Agrega a las estadisticas generales los atributos propios
+    @Override
+    public String mostrarEstadisticas() {
+        return super.mostrarEstadisticas() +
+                "\nCalidad del agua: " + calidadAgua +
+                "\nControl de temperatura: " + controlTemperatura +
+                "\nOxigenacion: " + oxigenacion;
+    }
 }

@@ -160,4 +160,13 @@ public class Aguila extends Tamagochi implements TamagochiActions{
 
         hambre = limite(hambre + nivelFuerza / 30);
     }
+
+    // Agrega a las estadisticas generales los atributos propios
+    @Override
+    public String mostrarEstadisticas() {
+        return super.mostrarEstadisticas() +
+                "\nFuerza: " + nivelFuerza +
+                "\nVelocidad: " + velocidad +
+                "\nEsta volando: " + (estaVolando ? "Si" : "No");
+    }
 }

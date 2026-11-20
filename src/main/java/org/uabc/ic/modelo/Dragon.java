@@ -157,4 +157,12 @@ public class Dragon extends Tamagochi{
         return "[Dragon] " + super.toString() + " tamanio: " + tamanio
                 + " apetito: " + apetito;
     }
+
+    // Agrega a las estadisticas generales los atributos propios
+    @Override
+    public String mostrarEstadisticas() {
+        return super.mostrarEstadisticas() +
+                "\nTamanio: " + tamanio +
+                "\nApetito: " + apetito;
+    }
 }

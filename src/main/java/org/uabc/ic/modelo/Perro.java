@@ -157,4 +157,12 @@ public class Perro extends Tamagochi implements  TamagochiActions {
         }
         hambre = limite(hambre + nivelImperactividad / 34);
     }
+
+    // Agrega a las estadisticas generales los atributos propios
+    @Override
+    public String mostrarEstadisticas() {
+        return super.mostrarEstadisticas() +
+                "\nAgresividad: " + nivelAgresividad +
+                "\nHiperactividad: " + nivelImperactividad;
+    }
 }
