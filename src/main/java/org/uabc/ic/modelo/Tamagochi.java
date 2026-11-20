@@ -23,9 +23,7 @@ public abstract class Tamagochi implements TamagochiActions {
         this.salud = salud;
         this.durmiendo = false;
         this.morir = false;
-        //this.tipoTamagochi = tipoTamagochi;
     }
-
 
     public Tamagochi(){
         this.nombre = "Solovino";
@@ -34,6 +32,7 @@ public abstract class Tamagochi implements TamagochiActions {
         this.felicidad = 40;
         this.salud = 50;
         this.morir = false;
+        this.durmiendo = false;
     }
 
     //Limites de las necesidades
@@ -57,6 +56,10 @@ public abstract class Tamagochi implements TamagochiActions {
         if (hambre >= 80){
             salud = limite(salud - 5);
         }
+    }
+
+    public void dormir (){
+        durmiendo = true;
     }
 
     public void despertar(){

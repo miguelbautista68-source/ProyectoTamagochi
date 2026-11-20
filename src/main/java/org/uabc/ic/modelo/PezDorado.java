@@ -81,7 +81,7 @@ public class PezDorado extends Tamagochi implements  TamagochiActions{
         durmiendo = true;
         energia = limite(energia + horasDeSueno * 10);
         hambre = limite(hambre + horasDeSueno * 2);
-        IO.println(nombre + " duerme " + horasDeSueno + " hora(s). Zzz...");
+        IO.println(nombre + " duerme " + horasDeSueno);
         return energia - antes;
     }
 
@@ -103,7 +103,7 @@ public class PezDorado extends Tamagochi implements  TamagochiActions{
 
     @Override
     public void hacerSonido() {
-
+        IO.println("Glu... glu... glu");
     }
 
     @Override

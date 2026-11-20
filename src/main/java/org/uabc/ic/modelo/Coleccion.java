@@ -16,7 +16,7 @@ public class Coleccion {
     public String listaJuguetes(){
         StringBuffer cadena = new StringBuffer();
         for(Tamagochi t : misJueguetes){
-            cadena.append(t);
+            cadena.append(t).append("\n");
         }
         return cadena.toString();
     }
@@ -26,7 +26,7 @@ public class Coleccion {
         if (misJueguetes.isEmpty()) {
             return "No hay tamagochis registrados todavia.";
         }
-        StringBuilder cadena = new StringBuilder("Tamagochis activos:\n");
+        StringBuilder cadena = new StringBuilder("Todos los tamagochis que hay\n");
         for (Tamagochi t : misJueguetes) {
             cadena.append("- ")
                   .append(t.getNombre())
@@ -42,6 +42,12 @@ public class Coleccion {
                 .filter(n -> n.getNombre().equalsIgnoreCase(encontrar))
                 .findFirst()
                 .orElse(null);
+    }
+
+    public void pasarTiempoATodos() {
+        for (Tamagochi t : misJueguetes) {
+            t.pasoDelTiempo();
+        }
     }
 
     public void agregarPerro(String nombre, int energia, int hambre, int felicidad, int salud, int agresividad, int imper){

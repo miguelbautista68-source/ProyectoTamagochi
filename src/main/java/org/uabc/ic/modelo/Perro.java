@@ -4,20 +4,17 @@ package org.uabc.ic.modelo;
 public class Perro extends Tamagochi implements  TamagochiActions {
     private int nivelImperactividad;
     private int nivelAgresividad;
-    private int ladridos;
 
     public Perro(String nombre, int energia, int hambre, int felicidad, int salud, int agresividad, int imper) {
         super(nombre, energia, hambre, felicidad, salud);
         nivelAgresividad = agresividad;
         nivelImperactividad = imper;
-        ladridos = 0;
     }
 
     public Perro() {
         super("Sansa", 10, 5, 6, 7);
         this.nivelAgresividad = 30;
         this.nivelImperactividad = 60;
-        this.ladridos = 0;
     }
 
     @Override
@@ -78,11 +75,7 @@ public class Perro extends Tamagochi implements  TamagochiActions {
         return gasto;
     }
 
-    // Comportamientos especificos
-    public void ladrar () {
-        ladridos++;
-        IO.println(nombre + " dice: ¡Guau guau!");
-    }
+
 
     @Override
     public int dormir(int horasDeSueno) {
@@ -90,7 +83,7 @@ public class Perro extends Tamagochi implements  TamagochiActions {
         durmiendo = true;
         energia = limite(energia + horasDeSueno * 10);
         hambre = limite(hambre + horasDeSueno * 2);
-        IO.println(nombre + " duerme " + horasDeSueno + " hora(s). Zzz...");
+        IO.println(nombre + " duerme " + horasDeSueno);
         return energia - antes;
     }
 
@@ -98,25 +91,26 @@ public class Perro extends Tamagochi implements  TamagochiActions {
     public String getMenuComida() {
         return "Selecciona un tipo de comida " +
                 "1. Croquetas " +
-                "2. Hueso" +
-                "3. Carne";
+                "2. Hueso " +
+                "3. Carne ";
     }
 
     @Override
     public String getMenuJuegos() {
-        return "Seleciona un tipo de juego" +
-                "1. Jugar con la pelota" +
-                "2. Perseguir cola" +
-                "3. Salir a correr";
+        return "Seleciona un tipo de juego " +
+                "1. Jugar con la pelota " +
+                "2. Perseguir cola " +
+                "3. Salir a correr ";
     }
 
     @Override
+    // Comportamientos especificos
     public void hacerSonido() {
-        ladrar();
+        IO.println(nombre + " dice guau guau");
     }
 
     public void perseguirCola() {
-        IO.println(nombre + " persigue su cola dando vueltas.");
+        IO.println(nombre + " persigue su cola dando vueltas");
     }
 
     @Override
@@ -141,13 +135,9 @@ public class Perro extends Tamagochi implements  TamagochiActions {
         this.nivelAgresividad = limite(nivelAgresividad);
     }
 
-    public int getLadridos() {
-        return ladridos;
-    }
 
     public String toString() {
         return "[Perro] " + super.toString() + " agresividad: " + nivelAgresividad
-                + " imperactividad: " + nivelImperactividad
-                + " ladridos: " + ladridos;
+                + " imperactividad: " + nivelImperactividad;
     }
 }

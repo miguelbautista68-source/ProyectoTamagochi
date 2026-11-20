@@ -29,7 +29,7 @@ public class VistaConsola {
         IO.println("2. MOstrar todos los juguetes");
         IO.println("3. Interactuar con mi tamagochi");
         IO.println("4. Checar estado de animo");
-        IO.println("5. Compportamiento unico");
+        IO.println("5. Sonido de tu tamagochi");
         IO.println("6. Salir");
 
         return leerNumeros.nextInt();
@@ -51,6 +51,13 @@ public class VistaConsola {
             IO.println("3. Dormir");
 
             return leerNumeros.nextInt();
+    }
+
+    public int menuDormirONo(){
+        IO.println("1. Dormir");
+        IO.println("2. Despertar");
+
+        return leerNumeros.nextInt();
     }
 
 }

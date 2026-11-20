@@ -4,13 +4,11 @@ public class Dragon extends Tamagochi{
     private int tamanio;
     private boolean tirarFuego;
     private int apetito;
-    private int rugido;
 
     Dragon(String nombre, int energia, int hambre, int felicidad, int salud, int tamanio, boolean tirarFuego, int apetito) {
         super(nombre, energia, hambre, felicidad, salud);
     }
     public void rugir(){
-        rugido++;
         System.out.println(nombre + "dice RRAAAAAAAAAAAUGGGHHGHGHGH");
 
     }
@@ -93,24 +91,24 @@ public class Dragon extends Tamagochi{
         durmiendo = true;
         energia = limite(energia + horasDeSueno * 10);
         hambre = limite(hambre + horasDeSueno * 2);
-        IO.println(nombre + " duerme " + horasDeSueno + " hora(s). Zzz...");
+        IO.println(nombre + " duerme " + horasDeSueno);
         return energia - antes;
     }
 
     @Override
     public String getMenuComida() {
         return "Selecciona el tipo de comida" +
-                " 1. Oveja" +
-                " 2. Vaca" +
-                " 3. Humano";
+                " 1. Oveja " +
+                " 2. Vaca " +
+                " 3. Humano ";
     }
 
     @Override
     public String getMenuJuegos() {
         return "Seleciona un tipo de juego" +
-                "1. Salir a cazar" +
-                "2. Tirar bolas de fuego" +
-                "3. Salir a volar";
+                "1. Salir a cazar " +
+                "2. Tirar bolas de fuego " +
+                "3. Salir a volar ";
     }
 
     //getters y setters
@@ -132,11 +130,6 @@ public class Dragon extends Tamagochi{
     public void setApetito(int apetito) {
         this.apetito = apetito;
     }
-    public int getRugido() {
-        return rugido;
-    }
-    public void setRugido(int rugido) {
-        this.rugido = rugido;
-    }
+
 
 }

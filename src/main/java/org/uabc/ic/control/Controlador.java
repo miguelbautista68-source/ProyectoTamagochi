@@ -5,6 +5,7 @@ import org.uabc.ic.modelo.Coleccion;
 import org.uabc.ic.modelo.Tamagochi;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Controlador {
 
@@ -28,41 +29,38 @@ public class Controlador {
                     tp = vista.mostrarOpcionTamagochi();
                     //String nombre, int energia, int hambre, int felicidad, int salud, int agresividad, int imper
                     String nombre = vista.leerCadenas("Escribe el nombre de tu tamagochi");
-                    int energia = vista.leerNumeros("Esribe el nivel de energia");
-                    int hambre = vista.leerNumeros("Escribe el nivel de hambre");
-                    int felicidad = vista.leerNumeros("Escribe el nivel de felicidad");
-                    int salud = vista.leerNumeros("Escribe el nivel de salud");
-
+                    Random rdm = new Random();
 
 
                     switch (tp){
                         case 1: //Sera perro
-                            int agresivo = vista.leerNumeros("Esribe el nivel de agresividad");
-                            int hiper = vista.leerNumeros("Escribe el nivel de hiperactividad");
 
-                            modelo.agregarPerro(nombre, energia, hambre, felicidad, salud, agresivo, hiper);
-                            //modelo.agregarPerro(nombre, hambre, 10, 40, 60, agresivo, hiper);
+                            int agresivo = rdm.nextInt(101);
+                            int hiper = rdm.nextInt(101);
+
+                            modelo.agregarPerro(nombre, 100, 0, 100, 100, agresivo, hiper);
+                            //modelo.agregarPerro(nombre, 0, 100, 40, 0, agresivo, hiper);
                             break;
                         case 2: // sera pez dorado
-                            int oxigenacion = vista.leerNumeros("Escribe el nivel de oxigenacion");
-                            int calidadAgua = vista.leerNumeros("Escribe el nivel de calidad de agua");
-                            int controlTemperatura = vista.leerNumeros("Escribe nivel de temperatura");
+                            int oxigenacion = rdm.nextInt(101);
+                            int calidadAgua = rdm.nextInt(101);
+                            int controlTemperatura = rdm.nextInt(101);
 
-                            modelo.agregarPerDorado(nombre, energia, hambre, felicidad, salud, oxigenacion, calidadAgua, controlTemperatura);
-                            //modelo.agregarPerDorado(nombre, hambre, 50, 40, 60, oxigenacion, calidadAgua, controlTemperatura);
+                            modelo.agregarPerDorado(nombre, 100, 0, 100, 100, oxigenacion, calidadAgua, controlTemperatura);
+                            //modelo.agregarPerDorado(nombre, 40, 50, 40, 0, oxigenacion, calidadAgua, controlTemperatura);
                             break;
                         case 3: // Sera aguila
-                            int nivelFuerza = vista.leerNumeros("Escribe el nivel de fuerza");
-                            int velocidad = vista.leerNumeros("Escribe el nivel de velocidad");
+                            int nivelFuerza = rdm.nextInt(101);
+                            int velocidad = rdm.nextInt(101);
 
-                            modelo.agregarAguila(nombre, energia, hambre, felicidad, salud, nivelFuerza, velocidad);
-                            //modelo.agregarAguila(nombre, hambre, 50, 60, 30, nivelFuerza, velocidad);
+                            modelo.agregarAguila(nombre, 100, 0, 100, 100, nivelFuerza, velocidad);
+                            //modelo.agregarAguila(nombre, 10, 50, 60, 0, nivelFuerza, velocidad);
                         break;
                         case 4:
                             int tamano = vista.leerNumeros("Escribe el tamaño de tu dragon");
 
-                            modelo.agregarDragon(nombre, energia, hambre, felicidad, salud, tamano, false, 0);
-                            //modelo.agregarDragon(nombre, 50, hambre, 60, 80, tamaño, false, 0);
+                            modelo.agregarDragon(nombre, 100, 0, 100, 100, tamano, false, 0);
+                            //modelo.agregarDragon(nombre, 50, 40, 60, 0, tamaño, false, 0);
                             break;
                     }
                     break;
@@ -91,7 +89,17 @@ public class Controlador {
                                     encontrado.jugar(juego);
                                     break;
                                 case 3:
-                                    //encontrado.dormir();
+                                    int opDormir = vista.menuDormirONo();
+                                    switch (opDormir){
+                                        case 1:
+                                            encontrado.dormir();
+                                            IO.println(encontrado.getNombre() + " esta durmiendo");
+                                            break;
+                                        case 2:
+                                            encontrado.despertar();
+                                            IO.println(encontrado.getNombre() + " esta despierto");
+                                            break;
+                                    }
                                     break;
                             }
                         }
@@ -100,26 +108,41 @@ public class Controlador {
                         }
                     break;
                 case 4:
+                    vista.mostrarDatos(modelo.listaNombres());
                     String tamagochiBuscar = vista.leerCadenas("Ingresa el nombre de tu tamagochi");
                     Tamagochi encontrar = modelo.buscarTamagochi(tamagochiBuscar);
 
-                    if(encontrar != null){
-                        IO.println(encontrar.estadoDeAnimo());
-                    } else {
-                        IO.println("No se ha encotrado ningun tamagochi con ese nombre");
-                    }
+                    if(encontrar != null) {
+                        if (encontrar.morir() == true) {
+                            IO.println("Tu mascota ha muerto");
+                        } else {
+                            IO.println(encontrar.estadoDeAnimo());
+                        }
+                        } else{
+                            IO.println("No se ha encotrado ningun tamagochi con ese nombre");
+                        }
                     break;
                 case 5:
+                    vista.mostrarDatos(modelo.listaNombres());
                     String tamagochiValidar = vista.leerCadenas("Ingresa el nombre de tu tamgochi");
                     Tamagochi buscarTam = modelo.buscarTamagochi(tamagochiValidar);
 
                     if (buscarTam != null){
-                        buscarTam.hacerSonido();
+                        if (buscarTam.morir() == true) {
+                            IO.println("Tu mascota ha muerto");
+                        } else {
+                            buscarTam.hacerSonido();
+                        }
                     } else {
                         IO.println("No se ha encontrado ningun tamagochi con ese nombre");
                     }
                     break;
             }
+
+            if (op >= 1 && op <= 4) {
+                modelo.pasarTiempoATodos();
+            }
+
         } while (op != 6);
     }
 }

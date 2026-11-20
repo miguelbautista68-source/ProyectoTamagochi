@@ -4,14 +4,12 @@ import java.util.Random;
 public class Aguila extends Tamagochi implements TamagochiActions{
     private int nivelFuerza;
     private int velocidad;
-    private int chillido;
     private boolean estaVolando;
 
 
     public Aguila(String nombre, int energia, int hambre, int felicidad, int salud, int fuerza, int velocidad ) {
         super(nombre, energia, hambre, felicidad, salud);
         nivelFuerza=fuerza;
-        chillido=0;
         this.velocidad = velocidad;
         this.estaVolando = false;
     }
@@ -87,28 +85,27 @@ public class Aguila extends Tamagochi implements TamagochiActions{
         durmiendo = true;
         energia = limite(energia + horasDeSueno * 10);
         hambre = limite(hambre + horasDeSueno * 2);
-        IO.println(nombre + " duerme " + horasDeSueno + " hora(s). Zzz...");
+        IO.println(nombre + " duerme " + horasDeSueno);
         return energia - antes;
     }
 
     @Override
     public String getMenuComida() {
         return "Selecciona el tipo de comida" +
-                "1. Gusanos" +
-                "2. Raton" +
-                "3. Serpiente";
+                "1. Gusanos " +
+                "2. Raton " +
+                "3. Serpiente ";
     }
 
     @Override
     public String getMenuJuegos() {
         return "Seleciona un tipo de juego" +
-                "1. Jugar con su munñeco" +
-                "2. Salir a volar" +
-                "3. Jugar con su amigo";
+                "1. Jugar con su munñeco " +
+                "2. Salir a volar " +
+                "3. Jugar con su amigo ";
     }
 
     public void chillido(){
-        chillido++;
         System.out.println("AAAAHHHHHHHH");
     }
 
@@ -142,12 +139,9 @@ public class Aguila extends Tamagochi implements TamagochiActions{
     public void setVelocidad(int velocidad) {
         this.velocidad = velocidad;
     }
-    public int getChillido() {
-        return chillido;
-    }
     public String toString(){
         return "[Aguila] " + super.toString() + " nivelFuerza: " + nivelFuerza
-                + " velocidad: " + velocidad + " chillido: " + chillido;
+                + " velocidad: " + velocidad;
 
     }
 }
