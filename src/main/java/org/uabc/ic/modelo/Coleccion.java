@@ -16,7 +16,7 @@ public class Coleccion {
     public String listaJuguetes(){
         StringBuffer cadena = new StringBuffer();
         for(Tamagochi t : misJueguetes){
-            cadena.append(t).append("\n");
+            cadena.append(t);
         }
         return cadena.toString();
     }
@@ -26,7 +26,7 @@ public class Coleccion {
         if (misJueguetes.isEmpty()) {
             return "No hay tamagochis registrados todavia.";
         }
-        StringBuilder cadena = new StringBuilder("Todos los tamagochis que hay\n");
+        StringBuilder cadena = new StringBuilder("Tamagochis activos:\n");
         for (Tamagochi t : misJueguetes) {
             cadena.append("- ")
                   .append(t.getNombre())
