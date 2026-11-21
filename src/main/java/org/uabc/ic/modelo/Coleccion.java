@@ -50,6 +50,17 @@ public class Coleccion {
         }
     }
 
+    // Quita de la lista a los tamagochis que ya murieron
+    public void eliminarMuertos() {
+        for (int i = misJueguetes.size() - 1; i >= 0; i--) {
+            Tamagochi t = misJueguetes.get(i);
+            if (t.morir()) {
+                IO.println(t.getNombre() + " murio y fue eliminado");
+                misJueguetes.remove(i);
+            }
+        }
+    }
+
     public void agregarPerro(String nombre, int energia, int hambre, int felicidad, int salud, int agresividad, int imper){
         agregar (new Perro(nombre,energia ,hambre, felicidad, salud, agresividad, imper));
     }

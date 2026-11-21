@@ -150,10 +150,19 @@ public class Controlador {
                     }
                     break;
 
+                case 8:
+                    // Crea de una vez un perro casi muerto (salud 5, hambre 90)
+                    modelo.agregarPerro("Moribundo", 10, 90, 10, 5, 50, 50);
+                    IO.println("Se creo perro moribundo ");
+                    break;
+
             }
 
             if (op >= 1 && op <= 4) {
                 modelo.pasarTiempoATodos();
+
+                // Despues de que pasa el tiempo se eliminan los que murieron
+                modelo.eliminarMuertos();
             }
 
         } while (op != 7);
