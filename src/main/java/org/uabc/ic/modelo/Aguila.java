@@ -148,15 +148,15 @@ public class Aguila extends Tamagochi implements TamagochiActions{
     // Cada paso del tiempo afecta distinto segun su fuerza y velocidad
     @Override
     public void pasoDelTiempo() {
-        super.pasoDelTiempo(); // lo normal: +5 hambre, -3 felicidad, -3 energia
+        super.pasoDelTiempo();
 
-        // Mas velocidad = gasta mas energia
+        // Mas velocidad ngasta mas energia
 
         if (!durmiendo) {
             energia = limite(energia - velocidad / 30);
         }
 
-        // Mas fuerza = necesita comer mas
+        // Mas fuerza necesita comer mas
 
         hambre = limite(hambre + nivelFuerza / 30);
     }
