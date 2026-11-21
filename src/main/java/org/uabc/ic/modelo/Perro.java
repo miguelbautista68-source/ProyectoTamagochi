@@ -146,10 +146,16 @@ public class Perro extends Tamagochi implements  TamagochiActions {
     public void pasoDelTiempo() {
         super.pasoDelTiempo();
 
-        // Agresividad alta
-        felicidad = limite(felicidad + nivelAgresividad / 40);
+        // Entre mas agresivo, menos felicidad pierde
+        if (nivelAgresividad <= 33) {
 
-        // Hiperactividad alta  se cansa y le da hambre mas rapido
+        } else if (nivelAgresividad <= 66) {
+            felicidad = limite(felicidad + 1);
+        } else {
+            felicidad = limite(felicidad + 2);
+        }
+
+        // Hiperactividad alta se cansa y le da hambre mas rapido
         if (!durmiendo) {
             energia = limite(energia - nivelImperactividad / 25);
         }

@@ -1,28 +1,28 @@
 package org.uabc.ic.modelo;
 import java.util.Random;
 
-public class Aguila extends Tamagochi implements TamagochiActions{
+public class Aguila extends Tamagochi implements TamagochiActions {
     private int nivelFuerza;
     private int velocidad;
     private boolean estaVolando;
 
 
-    public Aguila(String nombre, int energia, int hambre, int felicidad, int salud, int fuerza, int velocidad ) {
+    public Aguila(String nombre, int energia, int hambre, int felicidad, int salud, int fuerza, int velocidad) {
         super(nombre, energia, hambre, felicidad, salud);
-        nivelFuerza=fuerza;
+        nivelFuerza = fuerza;
         this.velocidad = velocidad;
         this.estaVolando = false;
     }
-    public void Volar(){
-        estaVolando=true;
+
+    public void Volar() {
+        estaVolando = true;
         System.out.println("Aguila volando");
     }
 
 
-
     @Override
     public void comer(int alimento) {
-        if  (durmiendo) {
+        if (durmiendo) {
             System.out.println(this.nombre + " esta durmiendo, no puede comer.");
             return;
         }
@@ -105,13 +105,13 @@ public class Aguila extends Tamagochi implements TamagochiActions{
                 "3. Jugar con su amigo ";
     }
 
-    public void chillido(){
+    public void chillido() {
         System.out.println("AAAAHHHHHHHH");
     }
 
     @Override
     public void hacerSonido() {
-    chillido();
+        chillido();
     }
 
     @Override
@@ -124,22 +124,28 @@ public class Aguila extends Tamagochi implements TamagochiActions{
     public int getNivelFuerza() {
         return nivelFuerza;
     }
+
     public void setNivelFuerza(int nivelFuerza) {
         this.nivelFuerza = nivelFuerza;
     }
+
     public boolean getEstaVolando() {
         return estaVolando;
     }
+
     public void setEstaVolando(boolean estaVolando) {
         this.estaVolando = estaVolando;
     }
+
     public int getVelocidad() {
         return velocidad;
     }
+
     public void setVelocidad(int velocidad) {
         this.velocidad = velocidad;
     }
-    public String toString(){
+
+    public String toString() {
         return "[Aguila] " + super.toString() + " nivelFuerza: " + nivelFuerza
                 + " velocidad: " + velocidad;
 
@@ -150,15 +156,21 @@ public class Aguila extends Tamagochi implements TamagochiActions{
     public void pasoDelTiempo() {
         super.pasoDelTiempo();
 
-        // Mas velocidad ngasta mas energia
-
+        // Mas velocidad = gasta mas energia
         if (!durmiendo) {
-            energia = limite(energia - velocidad / 30);
+            if (velocidad > 66) {
+                energia = limite(energia - 3);
+            } else if (velocidad > 33) {
+                energia = limite(energia - 1);
+            }
         }
 
-        // Mas fuerza necesita comer mas
-
-        hambre = limite(hambre + nivelFuerza / 30);
+        // Mas fuerza = necesita comer mas
+        if (nivelFuerza > 66) {
+            hambre = limite(hambre + 3);
+        } else if (nivelFuerza > 33) {
+            hambre = limite(hambre + 1);
+        }
     }
 
     // Agrega a las estadisticas generales los atributos propios

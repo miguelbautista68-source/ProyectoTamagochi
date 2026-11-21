@@ -136,19 +136,26 @@ public class PezDorado extends Tamagochi implements  TamagochiActions{
         super.pasoDelTiempo();
 
         // Agua sucia = le baja la salud
-
-        if (calidadAgua < 50) {
-            salud = limite(salud - (50 - calidadAgua) / 10);
+        if (calidadAgua <= 33) {
+            salud = limite(salud - 3);
+        } else if (calidadAgua <= 66) {
+            salud = limite(salud - 1);
         }
-
-        // Poco oxigeno se cansa mas rapido
-
+        // Poco oxigeno = se cansa mas rapido
         if (!durmiendo) {
-            energia = limite(energia - (100 - oxigenacion) / 30);
+            if (oxigenacion <= 33) {
+                energia = limite(energia - 3);
+            } else if (oxigenacion <= 66) {
+                energia = limite(energia - 1);
+            }
         }
 
-        // Temperatura mal controlada se pone triste
-        felicidad = limite(felicidad - (100 - controlTemperatura) / 35);
+        // Temperatura mal controlada = se pone triste
+        if (controlTemperatura <= 33) {
+            felicidad = limite(felicidad - 2);
+        } else if (controlTemperatura <= 66) {
+            felicidad = limite(felicidad - 1);
+        }
     }
 
     public String toString() {

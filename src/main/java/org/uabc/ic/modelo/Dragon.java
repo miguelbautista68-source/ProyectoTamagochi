@@ -145,12 +145,21 @@ public class Dragon extends Tamagochi{
     public void pasoDelTiempo() {
         super.pasoDelTiempo();
 
-        // Dragon mas grande le da hambre mas rapido
-        hambre = limite(hambre + tamanio / 20);
+        // Dragon mas grande = le da hambre mas rapido
+        if (tamanio <= 33) {
+            hambre = limite(hambre + 1);
+        } else if (tamanio <= 66) {
+            hambre = limite(hambre + 3);
+        } else {
+            hambre = limite(hambre + 5);
+        }
 
-        // Mas apetito  todavia mas hambre
-
-        hambre = limite(hambre + apetito / 34);
+        // Mas apetito = todavia mas hambre
+        if (apetito > 66) {
+            hambre = limite(hambre + 2);
+        } else if (apetito > 33) {
+            hambre = limite(hambre + 1);
+        }
     }
 
     public String toString() {
